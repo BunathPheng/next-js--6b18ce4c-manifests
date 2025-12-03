@@ -1,0 +1,16 @@
+---
+# Source: helm for kubernetes/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: next-js-6b18ce4c          # Service name
+  labels:
+    app: next-js-6b18ce4c
+spec:
+  type: ClusterIP   # Service type (ClusterIP, NodePort, LoadBalancer)
+  selector:
+    app: next-js-6b18ce4c         # Matches Deployment labels
+  ports:
+    - protocol: TCP
+      port: 3000         # Service port
+      targetPort: 3000  # Target container port
