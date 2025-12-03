@@ -1,0 +1,22 @@
+---
+# Source: helm for kubernetes/templates/application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: "next-js-6b18ce4c"
+  namespace: "argocd"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/BunathPheng/next-js--6b18ce4c-manifests.git
+    targetRevision: HEAD
+    path: manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: smartops-api
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
