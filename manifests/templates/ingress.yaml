@@ -1,0 +1,21 @@
+---
+# Source: helm for kubernetes/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: next-js-6b18ce4c                  # Ingress name
+  labels:
+    app: next-js-6b18ce4c
+spec:
+  ingressClassName: nginx   # Optional ingressClass
+  rules:
+    - host: "next-js-6b18ce4c.smartops.space"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: next-js-6b18ce4c               # Links to Service name dynamically
+                port:
+                  number: 3000  # Links to service port dynamically
