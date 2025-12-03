@@ -1,0 +1,25 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: next-js-6b18ce4c
+  labels:
+    app: next-js-6b18ce4c
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: next-js-6b18ce4c
+  template:
+    metadata:
+      labels:
+        app: next-js-6b18ce4c
+    spec:
+      containers:
+        - name: next-js-6b18ce4c
+          image: docker.io/phengbunath/next-js--6b18ce4c:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
